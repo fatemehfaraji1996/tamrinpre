@@ -1,5 +1,8 @@
 const express = require('express')
+const dotenv = require('dotenv')
+dotenv.config()
 const app = express();
+const port = process.env.PORT || 5000
 const logerMidelver= require('./midelver/loger')
 app.use(express.json())
 app.use(express.urlencoded())
@@ -17,5 +20,5 @@ app.use('*',(req,res)=>{
 
 app.listen(3000,()=>{
     console.clear();
-    console.log('server is runing on port http://localhost:3000');
+    console.log(`server is runing on port http://localhost:${port}`);
 })
